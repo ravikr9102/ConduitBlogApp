@@ -21,23 +21,9 @@ function Validate(name, value, errors) {
       }
       errors.password = passwordError;
       break;
-      // case 'title':
-      //   let titleError;
-      //   if(value.length <= 0){
-      //     titleError = 'title can not blank';
-      //   }
-      //   errors.title = titleError
-      //   break;
     default:
       return errors;
   }
 }
-
-// function notEmpty(value, name) {
-//   if (value.length <= 0) {
-//     return `${name} should not be empty`;
-//   }
-//   return "";
-// }
 
 export default Validate;

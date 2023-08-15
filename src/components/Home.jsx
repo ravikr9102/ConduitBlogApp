@@ -54,6 +54,7 @@ class Home extends React.Component {
         return res.json();
       })
       .then((data) => {
+        // console.log(data);
         this.setState({
           articles: data.articles,
           error: '',
@@ -79,7 +80,6 @@ class Home extends React.Component {
   render() {
     const { articles, error, articlesCount, articlesPerPage, activePageIndex, activeTab } =
       this.state;
-    // console.log(articles);
     return (
       <main>
         <Banner />

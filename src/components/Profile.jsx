@@ -21,6 +21,7 @@ class Profile extends React.Component {
         return res.json()
       }) 
       .then((data) => {
+        console.log(data.articles);
         this.setState({ articles: data.articles })
         })
         .catch((err) => {
@@ -44,6 +45,7 @@ class Profile extends React.Component {
   render() {
     const { username, bio, image } = this.props.user;
     let { articles } = this.state;
+    console.log(articles);
     return (
       <>
         <header className="bg-gray-300 py-12">

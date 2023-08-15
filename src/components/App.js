@@ -11,6 +11,7 @@ import FullPageSpinner from './fullPageSpinner';
 import NewPost from './NewPost';
 import Settings from './Settings';
 import Profile from './Profile';
+import EditPost from './EditPost';
 import { withRouter } from '../utils/withRouter';
 
 class App extends React.Component {
@@ -77,7 +78,6 @@ class App extends React.Component {
     );
   }
 }
-
 function AuthenticatedApp(props) {
   return (
     <Routes>
@@ -87,6 +87,7 @@ function AuthenticatedApp(props) {
         element={<SinglePost user={props.user} />}
       />
       <Route path="/new-post" element={<NewPost user={props.user} />} />
+      <Route path="/editor/:slug" element={<EditPost user={props.user} />} />
       <Route
         path="/settings"
         element={<Settings logout={props.logout} user={props.user} />}

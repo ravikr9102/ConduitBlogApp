@@ -1,19 +1,22 @@
 import React from 'react';
-
 import { Link } from 'react-router-dom';
 
-function Post(props) {
-  const {
-    author,
-    createdAt,
-    title,
-    description,
-    slug,
-    tagList,
-    favoritesCount,
-  } = props;
-  return (
-    <article className="px-12 py-5 border-t-2">
+class Post extends React.Component{
+  constructor(props){
+    super(props)
+  }
+  render(){
+    const {
+      author,
+      createdAt,
+      title,
+      description,
+      slug,
+      tagList,
+      favoritesCount,
+    } = this.props;
+    return(
+      <article className="px-12 py-5 border-t-2">
       <header className="flex justify-between">
         <div className="flex items-center">
           <img
@@ -28,8 +31,8 @@ function Post(props) {
             <strong className="block font-normal text-gray-500">
               {String(new Date(createdAt)).slice(0, 16)}
             </strong>
-            </div>
-        </div>
+          </div>
+          </div>
         <div>
           <button className="border border-green-500 text-green-500 px-2 rounded-sm py-1 hover:bg-green-500 hover:text-white">
             {favoritesCount === 0 ? '♡ 0' : '♥' + favoritesCount}
@@ -53,7 +56,8 @@ function Post(props) {
           </li>
         ))}
       </ul>
-    </article>
-  );
+      </article>
+    )
+  }
 }
 export default Post;

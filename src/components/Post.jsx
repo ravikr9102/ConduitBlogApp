@@ -9,9 +9,9 @@ function Post(props) {
     title,
     description,
     slug,
-    taglist,
+    tagList,
     favoritesCount,
-  } = props.article;
+  } = props;
   return (
     <article className="px-12 py-5 border-t-2">
       <header className="flex justify-between">
@@ -28,7 +28,7 @@ function Post(props) {
             <strong className="block font-normal text-gray-500">
               {String(new Date(createdAt)).slice(0, 16)}
             </strong>
-          </div>
+            </div>
         </div>
         <div>
           <button className="border border-green-500 text-green-500 px-2 rounded-sm py-1 hover:bg-green-500 hover:text-white">
@@ -47,11 +47,11 @@ function Post(props) {
         Read More...
       </Link>
       <ul className="flex justify-end">
-        {taglist.map((tag) => (
+        {tagList.map((tag) => (
           <li className="border-2 px-3 rounded-2xl py-1 mx-1" key={tag}>
             {tag}
           </li>
-          ))}
+        ))}
       </ul>
     </article>
   );

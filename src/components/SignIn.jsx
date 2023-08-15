@@ -1,18 +1,20 @@
 import React from 'react';
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 import Validate from '../utils/Validate';
+import { signinURL } from '../utils/constant';
+import { withRouter } from '../utils/withRouter';
 
 class SignIn extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-        email: "",
-        password: "",
-        errors: {
-          email: "",
-          password: "",
-        },
-      };
+      email: '',
+      password: '',
+      errors: {
+        email: '',
+        password: '',
+      },
+    };
   }
 
   handleChange = (event) => {
@@ -26,6 +28,39 @@ class SignIn extends React.Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
+    const { email, password } = this.state;
+    fetch(signinURL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ user: { email, password } }),
+    })
+      .then((res) => {
+        if (!res.ok) {
+          return res.json().then(({ errors }) => {
+            return Promise.reject(errors);
+          });
+        }
+        return res.json();
+      })
+      .then(({ user }) => {
+        console.log(user);
+        this.props.updateUser(user);
+        // this.setState({ email: '', password: '' });
+        this.props.navigate('/');
+      })
+      .catch((errors) =>
+        this.setState((prevState) => {
+          return {
+            ...prevState,
+            errors: {
+              ...prevState.errors,
+              email: 'email or password is incorrect!',
+            },
+          };
+        })
+      );
   };
 
   render() {
@@ -75,4 +110,4 @@ class SignIn extends React.Component {
   }
 }
 
-export default SignIn;
+export default withRouter(SignIn);

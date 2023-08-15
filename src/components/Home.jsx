@@ -12,8 +12,8 @@ class Home extends React.Component {
     this.state = {
       articles: null,
       error: '',
-      articlesCount: 20,
-      articlesPerPage: 6,
+      articlesCount: null,
+      articlesPerPage: 10,
       activePageIndex: 1,
       activeTab: '',
     };
@@ -56,6 +56,7 @@ class Home extends React.Component {
         this.setState({
           articles: data.articles,
           error: '',
+          articlesCount: data.articlesCount
         });
       })
       .catch((err) => {

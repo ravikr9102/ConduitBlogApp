@@ -2,7 +2,7 @@ import React from "react"
 
 export default function Pagination(props) {
     let {articlesCount, articlesPerPage, updateCurrentPageIndex} = props;
-    let numberOfPages = Math.floor(articlesCount / articlesPerPage);
+    let numberOfPages = Math.ceil(articlesCount / articlesPerPage);
     console.log(numberOfPages);
     let pagesArray = []
 
@@ -11,7 +11,7 @@ export default function Pagination(props) {
     }
 
     return(
-       <div className="flex justify-center items-center">
+       <div className="px-12 py-5">
         <ul className="flex flex-wrap">
         {
             pagesArray.map((page,i) => (

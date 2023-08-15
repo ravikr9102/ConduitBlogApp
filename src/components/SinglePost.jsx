@@ -24,7 +24,7 @@ class SinglePost extends React.Component {
       })
       .then((data) => {
         this.setState({
-          article: data.article.article,
+          article: data.article,
           error: '',
         });
       })
@@ -73,7 +73,7 @@ class SinglePost extends React.Component {
               {article.body}
             </p>
             <div className="mt-4">
-              {article.taglist.map((tag) => (
+              {article.tagList.map((tag) => (
                 <span key={tag} className="border rounded-xl px-3 py-1 text-sm text-gray-500">
                   {tag}
                 </span>

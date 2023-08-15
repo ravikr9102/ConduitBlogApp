@@ -3,7 +3,7 @@ import React from "react"
 export default function Pagination(props) {
     let {articlesCount, articlesPerPage, updateCurrentPageIndex} = props;
     let numberOfPages = Math.ceil(articlesCount / articlesPerPage);
-    console.log(numberOfPages);
+    // console.log(numberOfPages);
     let pagesArray = []
 
     for(let i = 1; i <=numberOfPages; i++){

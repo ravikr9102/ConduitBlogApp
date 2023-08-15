@@ -12,7 +12,7 @@ class Home extends React.Component {
     this.state = {
       articles: null,
       error: '',
-      articlesCount: null,
+      articlesCount: 0,
       articlesPerPage: 10,
       activePageIndex: 1,
       activeTab: '',
@@ -28,6 +28,7 @@ class Home extends React.Component {
   addTab = (value) => {
     this.setState({
       activeTab: value
+      
     })
   }
 
@@ -78,7 +79,7 @@ class Home extends React.Component {
   render() {
     const { articles, error, articlesCount, articlesPerPage, activePageIndex, activeTab } =
       this.state;
-    console.log(articles);
+    // console.log(articles);
     return (
       <main>
         <Banner />

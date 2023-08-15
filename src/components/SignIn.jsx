@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Validate from '../utils/Validate';
+// import Validate from '../utils/Validate';
 import { signinURL } from '../utils/constant';
 import { withRouter } from '../utils/withRouter';
 
@@ -21,7 +21,7 @@ class SignIn extends React.Component {
     let { name, value } = event.target;
     let errors = { ...this.state.errors };
 
-    Validate(name, value, errors);
+    // Validate(name, value, errors);
 
     this.setState({ [name]: value, errors });
   };

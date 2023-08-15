@@ -7,7 +7,7 @@ export default function Posts(props) {
   if (error) {
     return <p className="text-center p-2">{error}</p>;
   }
-  console.log(articles);
+  // console.log(articles);
   if (!articles) {
     return (
       <React.Fragment>

@@ -38,7 +38,7 @@ class Profile extends React.Component {
       {
         activeTab: label,
       },
-      this.fetchData()
+      this.fetchData
     );
   };
 

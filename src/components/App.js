@@ -13,6 +13,7 @@ import Settings from './Settings';
 import Profile from './Profile';
 import EditPost from './EditPost';
 import { withRouter } from '../utils/withRouter';
+import ErrorBoundary from './ErrorBoundary';
 
 class App extends React.Component {
   constructor(props) {
@@ -34,7 +35,7 @@ class App extends React.Component {
       })
         .then((res) => {
           if (res.ok) {
-            return res.json();
+           return res.json();
           }
           return res.json().then(({ errors }) => {
             return Promise.reject(errors);
@@ -51,7 +52,7 @@ class App extends React.Component {
       isSignIn: false,
       user: null,
     });
-    this.props.navigate('/');
+    this.props.navigate("/");
     localStorage.clear();
   };
 
@@ -64,58 +65,45 @@ class App extends React.Component {
       return <FullPageSpinner />;
     }
     return (
-      <React.Fragment>
-        <Header isSignIn={this.state.isSignIn} user={this.state.user} />
-        {this.state.isSignIn ? (
-          <AuthenticatedApp user={this.state.user} logout={this.handleLogout} />
-        ) : (
-          <UnauthenticatedApp
-            updateUser={this.updateUser}
-            user={this.state.user}
-          />
-        )}
-      </React.Fragment>
+      <ErrorBoundary message="Something went wrong! Please reload the page">
+      <Header isSignIn={this.state.isSignIn} user={this.state.user} />
+       {
+        this.state.isSignIn ? <AuthenticatedApp user={this.state.user} logout={this.handleLogout} /> : <UnauthenticatedApp updateUser={this.updateUser} user={this.state.user} />
+       }
+     </ErrorBoundary>
     );
   }
 }
-function AuthenticatedApp(props) {
-  return (
+
+function AuthenticatedApp(props){
+  return(
     <Routes>
-      <Route path="/" element={<Home />} />
-      <Route
-        path="/articles/:slug"
-        element={<SinglePost user={props.user} />}
-      />
-      <Route path="/new-post" element={<NewPost user={props.user} />} />
-      <Route path="/editor/:slug" element={<EditPost user={props.user} />} />
-      <Route
-        path="/settings"
-        element={<Settings logout={props.logout} user={props.user} />}
-      />
-      <Route path="/:profile" element={<Profile user={props.user} />} />
-      <Route path="*" element={<NoMatch />} />
+    <Route path="/" element={<Home />} />
+    <Route path="/articles/:slug" element={<SinglePost user={props.user} />} />
+    <Route path='/new-post' element={<NewPost user={props.user} />} />
+    <Route path="/editor/:slug" element={<EditPost user={props.user} />} />
+    <Route path='/settings' element={<Settings logout={props.logout} user={props.user}  />} />
+    <Route path='/:profile' element={<Profile user={props.user} />} />
+    <Route path="*" element={<NoMatch />} />
     </Routes>
-  );
+  )
 }
-function UnauthenticatedApp(props) {
-  return (
+function UnauthenticatedApp(props){
+  return(
     <Routes>
-      <Route path="/" element={<Home />} />
-      <Route
-        path="/articles/:slug"
-        element={<SinglePost user={props.user} />}
-      />
-      <Route
-        path="/signin"
-        element={<SignIn updateUser={props.updateUser} />}
-      />
-      <Route
-        path="/signup"
-        element={<SignUp updateUser={props.updateUser} />}
-      />
-      <Route path="*" element={<NoMatch />} />
-    </Routes>
-  );
+          <Route path="/" element={<Home />} />
+          <Route path="/articles/:slug" element={<SinglePost user={props.user} />} />
+          <Route
+            path="/signin"
+            element={<SignIn updateUser={props.updateUser} />}
+          />
+          <Route
+            path="/signup"
+            element={<SignUp updateUser={props.updateUser} />}
+          />
+          <Route path="*" element={<NoMatch />} />
+        </Routes>
+  )
 }
 
 export default withRouter(App);

@@ -74,7 +74,7 @@ function AuthHeader(props) {
             activeclassname="text-slate-600"
             to={`/${props.user.username}`}
           >
-            Profile
+            {props.user.username}
           </NavLink>
         </li>
       </ul>

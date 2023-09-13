@@ -67,7 +67,7 @@ class Settings extends React.Component {
     return (
       <section className="container mx-auto mt-8">
         <h1 className="text-center text-3xl font-bold mb-8">Your Settings</h1>
-        <div className="max-w-xl mx-auto pb-8">
+        <div className="max-w-xl mx-auto pb-8 px-5">
           <form onSubmit={this.handleSubmit} className="text-right" action="">
             <input
               className="block w-full border px-4 py-3 rounded-sm"

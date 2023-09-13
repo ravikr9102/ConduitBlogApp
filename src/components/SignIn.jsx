@@ -74,7 +74,7 @@ class SignIn extends React.Component {
           </h6>
         </header>
         <form
-          className="mt-8 text-center"
+          className="mt-8 text-center px-4"
           action=""
           onSubmit={this.handleSubmit}
         >

@@ -69,7 +69,7 @@ class NewPost extends React.Component {
   render() {
     let { title, description, body, tagList, errors } = this.state;
     return (
-      <section className="container mx-auto mt-8">
+      <section className="container mx-auto mt-8 p-5">
         <form
           onSubmit={this.handleSubmit}
           className="text-right max-w-4xl mx-auto"

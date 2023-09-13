@@ -51,7 +51,7 @@ class CreateComment extends React.Component {
     }
     const { username, image } = this.props.user;
     return (
-      <section className="max-w-2xl mx-auto m-8">
+      <section className="max-w-2xl mx-auto m-8 px-5">
         <form className="border rounded-md" action="">
           <textarea
             className="block w-full p-3 rounded-md outline-none"

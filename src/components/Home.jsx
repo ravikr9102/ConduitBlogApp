@@ -84,8 +84,8 @@ class Home extends React.Component {
       <main>
         <Banner />
         <section className="py-12">
-          <div className="container mx-auto flex">
-            <div className="w-3/4">
+          <div className="container mx-auto md:flex">
+            <div className="md:w-3/4">
               <FeedNav activeTab={activeTab} removeTab={this.removeTab} />
               <Posts articles={articles} error={error} />
               <Pagination

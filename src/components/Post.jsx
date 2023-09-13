@@ -49,9 +49,9 @@ class Post extends React.Component{
       >
         Read More...
       </Link>
-      <ul className="flex justify-end">
+      <ul className="flex justify-center md:justify-end p-2">
         {tagList.map((tag) => (
-          <li className="border-2 px-3 rounded-2xl py-1 mx-1" key={tag}>
+          <li className="border-2 md:px-3 px-2 rounded-2xl py-1 mx-1" key={tag}>
             {tag}
           </li>
         ))}

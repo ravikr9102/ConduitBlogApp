@@ -68,7 +68,7 @@ class Profile extends React.Component {
               <h1 className="text-3xl font-bold mt-3">{username}</h1>
               <h2>{bio}</h2>
             </div>
-            <div className="text-right mt-4 mr-9">
+            <div className="md:text-right mt-4 md:mr-9">
               <Link
                 to="/settings"
                 className="border border-gray-700 px-3 py-1 rounded hover:bg-gray-400"

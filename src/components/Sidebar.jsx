@@ -43,8 +43,8 @@ render() {
       );
     }
     return (
-      <aside className="w-1/4 pl-12">
-        <h2 className="text-2xl font-bold mb-4">Popular Tags</h2>
+      <aside className="md:w-1/4 md:pl-12 px-6 md:px-0">
+        <h2 className="text-2xl font-bold mb-4 text-center md:text-start">Popular Tags</h2>
         <ul className="p-4 bg-gray-100 rounded-md">
           {tags.map((tag) => (
             <li

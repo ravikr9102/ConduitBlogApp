@@ -65,7 +65,7 @@ class SignUp extends React.Component {
             <Link to="/signin">Have an account?</Link>
           </h6>
         </header>
-        <form onSubmit={this.handleSubmit} className="mt-8 text-center">
+        <form onSubmit={this.handleSubmit} className="mt-8 text-center px-4">
           <input
             className="block w-full border px-4 py-2 mt-6 mb-3"
             type="text"

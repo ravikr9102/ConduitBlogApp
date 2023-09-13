@@ -113,11 +113,11 @@ class SinglePost extends React.Component {
               </div>
             </div>
           </header>
-          <section className="px-12 py-5">
+          <section className="md:px-12 px-8 py-5">
             <p className="text-xl text-gray-600 leading-normal">
               {article.body}
             </p>
-            <div className="mt-4">
+            <div className="mt-4 mr-2">
               {article.tagList.map((tag) => (
                 <span
                   key={tag}
@@ -130,7 +130,7 @@ class SinglePost extends React.Component {
             </section>
         </article>
         {this.props.user === null ? (
-          <section className="mt-12 border-t container mx-auto py-12">
+          <section className="mt-12 border-t container mx-auto py-12 px-5">
             <div className="max-w-xl mx-auto">
               <p>
                 <Link className="text-green-500" to="/signin">
